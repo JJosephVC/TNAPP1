@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TNAPP.Views.LoginPage"
+             Title="LoginPage">
+    
+    <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+        <Frame BackgroundColor="White" CornerRadius="20" WidthRequest="300" HeightRequest="620" Padding="30">
+            <StackLayout>
+                <Image Source="logo_tnapp.png" WidthRequest="200"/>
+                <Label Text="Inicio de Sesión" FontSize="Title" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,20,0,45"/>
+
+                <Label Text="Ingrese su E-mail"/>
+                <Entry x:Name="emailEntry" Keyboard="Email" Placeholder="Correo Electrónico" HeightRequest="65" BackgroundColor="Transparent"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,0"/>
+
+                <Label Text="Ingrese su contraseña" Margin="0,30,0,0"/>
+                <Entry x:Name="passwordEntry" IsPassword="True" Placeholder="Contraseña" HeightRequest="65"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,50"/>
+
+                <StackLayout HorizontalOptions="Start" Margin="0,0,0,0">
+                    <Label IsVisible="False" x:Name="errorLabel" TextColor="Red" FontSize="10" HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+
+                <Button Text="Iniciar Sesión" 
+                     TextColor="Black" 
+                     BackgroundColor="White" 
+                     BorderWidth="1" BorderColor="Gray" CornerRadius="20"
+                     HeightRequest="40" WidthRequest="180"
+                     Clicked="OnLoginClicked"/>
+
+                <StackLayout Margin="0,30,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="¿No tienes cuenta aún?" FontSize="12" Margin="0,0,20,0"/>
+                    <Label Text="Crear Cuenta" FontSize="12" TextColor="Blue">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapCreate"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<popup:BasePopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:MauiPopup.Views;assembly=MauiPopup"
+             x:Class="TNAPP.Views.MensajeConf"
+             Title="MensajeConf">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Frame WidthRequest="300" HeightRequest="500" CornerRadius="0">
+            <StackLayout>
+                <Label Text="Confidencialidad y Términos de Uso del Rol de Maestro" 
+                    FontSize="Header" TextColor="Black" FontAttributes="Bold" Padding="20"/>
+                <Label Text="Al crear una cuenta de maestro en esta aplicación, te comprometes a respetar los siguientes términos:" 
+                    TextColor="Black" FontSize="11" Margin="0,0,0,15"/>
+                <Label Text="1. Confidencialidad de los Datos: Aceptas mantener la privacidad de la información de los estudiantes a tu cargo. Los datos académicos y personales de los estudiantes deben ser manejados de manera segura y confidencial, sin compartirlos con terceros no autorizados."
+                    FontSize="11" Margin="0,0,0,10"
+                    MaxLines="5"
+                    LineBreakMode="WordWrap"
+                    WidthRequest="240"/>
+                <Label Text="2. Uso Responsable de la Información: Los datos académicos que accedas y gestiones deben utilizarse únicamente para fines educativos y para promover el rendimiento y bienestar de los estudiantes." 
+                    FontSize="11" Margin="0,0,0,10"
+                    MaxLines="4"
+                    LineBreakMode="WordWrap"
+                    WidthRequest="240"/>
+                <Label Text="3. Cumplimiento de Normativas: Aceptas cumplir con todas las políticas de privacidad y seguridad de la institución o plataforma que utiliza esta aplicación. Además, cualquier mal uso o divulgación inapropiada de la información puede resultar en la suspensión de tu cuenta y en posibles consecuencias legales." 
+                    FontSize="11" Margin="0,0,0,10"
+                    MaxLines="6"
+                    LineBreakMode="WordWrap"
+                    WidthRequest="240"/>
+
+                <StackLayout Orientation="Horizontal" Margin="10,10,0,0">
+                    <CheckBox x:Name="CBEntendido" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label Text="Al seleccionar el recuadro confirmas que has leído y comprendes las obligaciones asociadas con el rol de maestro." 
+                        FontSize="10" 
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        LineBreakMode="WordWrap"
+                        MaxLines="3"
+                        WidthRequest="180"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,30,0,0">
+                    <Label Text="Cancelar" Margin="0,0,20,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapCancel"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label x:Name="labelContinuar"
+                         Text="Continuar"
+                         IsEnabled="False"
+                         TextColor="Gray">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapAcepted"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</popup:BasePopupPage>

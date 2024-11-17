@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "678567906075",
+    "firebase_url": "https://trackingofclassevaluations-default-rtdb.firebaseio.com",
+    "project_id": "trackingofclassevaluations",
+    "storage_bucket": "trackingofclassevaluations.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678567906075:android:920a91c649b962db28a1be",
+        "android_client_info": {
+          "package_name": "protce.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM4oxKMx9K1Veef-SXCG1dMtIDQSzUmSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,103 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TNAPP.Views.EstudiantePage"
+             Title="EstudiantePage">
+
+    <Grid RowDefinitions="*,Auto">
+        <!-- Contenedor dinámico para páginas -->
+        <ContentView x:Name="ContentContainer" Grid.Row="0">
+            <!-- Contenido inicial de EstudiantePage -->
+            <Grid RowDefinitions="Auto,*,Auto">
+                <!-- Barra de título -->
+                <Frame BackgroundColor="White" HeightRequest="70" Grid.Row="0" HasShadow="True" CornerRadius="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="TNAPP" FontSize="Large" TextColor="Black" VerticalOptions="Center" 
+                               Grid.Column="1" HorizontalOptions="Start" Margin="10,0" />
+                    </Grid>
+                </Frame>
+
+                <!-- Contenido principal -->
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" Grid.Row="1">
+                    <VerticalStackLayout Padding="20">
+                        <Label Text="Clases Inscritas" FontSize="24" HorizontalOptions="Center" />
+                        <Image Source="clasesins.png" x:Name="noClasesimg" HorizontalOptions="Center" 
+                               VerticalOptions="Center" IsVisible="False" />
+
+                        <!-- Lista de clases inscritas -->
+                        <CollectionView x:Name="enrolledClassesCollectionView" Margin="0,10,0,10">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="1" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame CornerRadius="10" Padding="10" Margin="5" HasShadow="True">
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding NombreClase}" FontAttributes="Bold" FontSize="18" />
+                                            <Label Text="{Binding Grado}" FontSize="14" />
+                                            <Label Text="{Binding Anio}" FontSize="14" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </StackLayout>
+
+                <!-- Botón flotante en la esquina inferior derecha con ícono -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="30"
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       VerticalOptions="End"
+                       HorizontalOptions="End"
+                       Margin="0,0,20,20"
+                       HasShadow="True"
+                       Grid.Row="1">
+                    <Frame.GestureRecognizers>
+                        <!-- Usa el evento Tapped para abrir el modal -->
+                        <TapGestureRecognizer Tapped="OnFloatingButtonTapped"/>
+                    </Frame.GestureRecognizers>
+                    <Image Source="mas.png"
+                           WidthRequest="20" 
+                           HeightRequest="18" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </ContentView>
+
+        <!-- Menú Inferior -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*" BackgroundColor="#F8F8F8" Padding="0,10">
+            <!-- Inicio -->
+            <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                <Image x:Name="navInicioIcon" Source="home.png" WidthRequest="24" HeightRequest="24" />
+                <Label x:Name="navInicioLabel" Text="Inicio" FontSize="12" TextColor="Black" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNavInicio" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <!-- Perfil -->
+            <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                <Image x:Name="navPerfilIcon" Source="user.png" WidthRequest="24" HeightRequest="24" />
+                <Label x:Name="navPerfilLabel" Text="Perfil" FontSize="12" TextColor="Black" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNavPerfil" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <!-- Ajustes -->
+            <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                <Image x:Name="navAjustesIcon" Source="setting_s.png" WidthRequest="24" HeightRequest="24" />
+                <Label x:Name="navAjustesLabel" Text="Ajustes" FontSize="12" TextColor="Black" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNavAjustes" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

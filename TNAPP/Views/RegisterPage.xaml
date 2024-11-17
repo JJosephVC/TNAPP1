@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TNAPP.Views.RegisterPage"
+             Title="RegisterPage">
+    
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+        <Frame BackgroundColor="White" CornerRadius="20" Padding="15" WidthRequest="335" HeightRequest="650">
+            <StackLayout>
+
+                <Label Text="Registrarse" FontSize="Title" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,0,0,50"/>
+
+                <Label Text="Ingrese sus nombres" FontSize="13"/>
+                <Entry x:Name="nombresEntry" Placeholder="Nombres"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Ingrese sus apellidos" FontSize="13"/>
+                <Entry x:Name="apellidosEntry" Placeholder="Apellidos"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Ingrese correo electrónico" FontSize="13"/>
+                <Entry x:Name="emailEntry" Keyboard="Email" Placeholder="Correo Electrónico"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Ingrese su contraseña" FontSize="13"/>
+                <Entry x:Name="passwordEntry" Placeholder="Contraseña" IsPassword="True"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Confirme su contraseña" FontSize="13"/>
+                <Entry x:Name="confirmPasswordEntry" Placeholder="Confirmar contraseña" IsPassword="True"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <!-- Picker -->
+                <StackLayout Orientation="Horizontal" Spacing="2" Margin="0,5,0,20">
+                    <!-- Primer Picker -->
+                    <Frame CornerRadius="5" Padding="0" HeightRequest="50" WidthRequest="150" BackgroundColor="White" BorderColor="Gray">
+                        <Grid>
+                            <!-- Picker -->
+                            <Picker x:Name="rolePicker" FontSize="12" Title="Selecciona un rol" TitleColor="Gray"
+                                 VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                                 Margin="0,10,0,0" SelectedIndexChanged="OnRoleSelected">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>estudiante</x:String>
+                                        <x:String>maestro</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Grid>
+                    </Frame>
+                    <!-- Segundo Picker -->
+                    <Frame CornerRadius="5" Padding="0" HeightRequest="50" WidthRequest="150" BackgroundColor="White" BorderColor="Gray">
+                        <Grid>
+                            <Picker x:Name="GenderPicker" FontSize="12" Title="Selecciona tu género" TitleColor="Gray"
+                                 VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                                 Margin="0,10,0,0">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>M</x:String>
+                                        <x:String>F</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+
+                <!-- Mensaje de error -->
+                <StackLayout HorizontalOptions="Start" Margin="0,-7,0,0">
+                    <Label x:Name="errorLabel" IsVisible="False" TextColor="Red" FontSize="10" HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+
+                <Button Text="Registrarse" 
+                     TextColor="Black"
+                     FontSize="14"
+                     BorderWidth="1" 
+                     BorderColor="Gray" 
+                     BackgroundColor="White" 
+                     CornerRadius="20"
+                     Margin="0,10,0,0"
+                     WidthRequest="180"
+                     HeightRequest="38"
+                     Clicked="OnRegisterClicked"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20">
+                    <Label Text="¿Ya tienes una cuenta?" FontSize="12" Margin="0,0,11,0"/>
+                    <Label Text="Iniciar Sesión" FontSize="12" TextColor="Blue">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapAlready"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    
+</ContentPage>
