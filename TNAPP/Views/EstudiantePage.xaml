@@ -68,11 +68,11 @@
                            HorizontalOptions="Center"/>
                 </Frame>
             </Grid>
-        </ContentView>
+        </ContentView> 
 
         <!-- Menú Inferior -->
         <Grid Grid.Row="1" ColumnDefinitions="*,*,*" BackgroundColor="#F8F8F8" Padding="0,10">
-            <!-- Inicio -->
+             <!--Inicio -->
             <StackLayout Grid.Column="0" HorizontalOptions="Center">
                 <Image x:Name="navInicioIcon" Source="home.png" WidthRequest="24" HeightRequest="24" />
                 <Label x:Name="navInicioLabel" Text="Inicio" FontSize="12" TextColor="Black" />
@@ -81,7 +81,7 @@
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
-            <!-- Perfil -->
+           <!-- Perfil -->
             <StackLayout Grid.Column="1" HorizontalOptions="Center">
                 <Image x:Name="navPerfilIcon" Source="user.png" WidthRequest="24" HeightRequest="24" />
                 <Label x:Name="navPerfilLabel" Text="Perfil" FontSize="12" TextColor="Black" />

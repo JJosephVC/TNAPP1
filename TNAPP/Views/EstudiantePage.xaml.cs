@@ -48,18 +48,10 @@ public partial class EstudiantePage : ContentPage
         ResetTabStyles();
         SetActiveTab(navInicioIcon, navInicioLabel);
 
-        // Mantener EstudiantePage como página inicial
-        //ContentContainer.Content = new StackLayout
-        //{
-        //    VerticalOptions = LayoutOptions.Center,
-        //    Children =
-        //        {
-        //            new Label { Text = "Bienvenido, Estudiante", FontSize = 24, HorizontalOptions = LayoutOptions.Center }
-        //        }
-        //};
-
-        // Refresca los datos directamente
-        LoadEstudianteData();
+        // Crea una nueva instancia de EstudiantePage y carga su contenido
+        var estudiantePage = new EstudiantePage(userId);
+        estudiantePage.LoadEstudianteData(); // Llama explícitamente al método de carga de datos
+        ContentContainer.Content = estudiantePage.Content; // Asigna el contenido de la página
     }
 
     private void OnNavPerfil(object sender, EventArgs e)
