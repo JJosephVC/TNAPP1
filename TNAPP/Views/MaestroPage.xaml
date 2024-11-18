@@ -1,12 +1,84 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            android:TabbedPage.ToolbarPlacement="Bottom"
              x:Class="TNAPP.Views.MaestroPage"
+             BarBackgroundColor="LightGray"
+             BarTextColor="Black"
              Title="MaestroPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-</ContentPage>
+
+    <!-- Página de Inicio -->
+    <ContentPage Title="Inicio" IconImageSource="home.png" NavigationPage.HasNavigationBar="False">
+        <ScrollView>
+            <VerticalStackLayout Padding="20">
+
+                <Label Text="Gestionar Clases"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#333" />
+                <ListView x:Name="classesListView"
+                          Margin="0,20,0,0"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="Default"
+                          BackgroundColor="#FFFFFF"
+                          RowHeight="90" ItemTapped="OnClaseSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Orientation="Vertical">
+                                    <Label Text="{Binding NombreClase}"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="#007ACC" />
+                                    <Label Text="{Binding CodigoClase}"
+                                           FontSize="16"
+                                           TextColor="#666" />
+                                    <Label Text="{Binding Grado}"
+                                           FontSize="16"
+                                           TextColor="#666" />
+                                    <Label Text="{Binding Anio}"
+                                           FontSize="14"
+                                           TextColor="#999"
+                                           Margin="0,5,0,0" />
+                                    <!-- Margen superior para separar del label anterior -->
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!-- Botón flotante en la esquina inferior derecha con ícono -->
+                <Frame BackgroundColor="White"
+                          CornerRadius="40"
+                          WidthRequest="65"
+                          HeightRequest="65"
+                          VerticalOptions="End"
+                          HorizontalOptions="End"
+                          Margin="0,0,20,20"
+                          HasShadow="True"
+                          Grid.Row="1">
+                    <Frame.GestureRecognizers>
+                        <!-- Usa el evento Tapped para abrir el modal -->
+                        <TapGestureRecognizer Tapped="OnFloatingButtonTapped"/>
+                    </Frame.GestureRecognizers>
+                    <Image Source="mas.png"
+                              WidthRequest="20" 
+                              HeightRequest="18" 
+                              VerticalOptions="Center"
+                              HorizontalOptions="Center"/>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <!-- Página de Perfil -->
+    <ContentPage Title="Perfil" IconImageSource="user.png" NavigationPage.HasNavigationBar="False">
+
+    </ContentPage>
+
+    <!-- Página de Configuración -->
+    <ContentPage Title="Ajustes" IconImageSource="setting.png" NavigationPage.HasNavigationBar="False">
+
+    </ContentPage>
+</TabbedPage>

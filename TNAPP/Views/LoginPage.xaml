@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TNAPP.Views.LoginPage"
-             Title="LoginPage">
+             Title="LoginPage"
+             NavigationPage.HasNavigationBar="False">
     
     <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
         <Frame BackgroundColor="White" CornerRadius="20" WidthRequest="300" HeightRequest="620" Padding="30">
             <StackLayout>
-                <Image Source="logo_tnapp.png" WidthRequest="200"/>
+                <Image Source="tnapplogo.png" WidthRequest="80"/>
                 <Label Text="Inicio de Sesión" FontSize="Title" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,20,0,45"/>
 
                 <Label Text="Ingrese su E-mail"/>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<popup:BasePopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:MauiPopup.Views;assembly=MauiPopup"
+             x:Class="TNAPP.Views.CrearClaseModal"
+             Title="CrearClaseModal">
+    
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Frame BackgroundColor="White" CornerRadius="0" Padding="20" WidthRequest="300" HeightRequest="400">
+            <StackLayout>
+                
+                <Label Text="Crear Nueva Clase" FontSize="24" HorizontalOptions="Center" />
+
+                <Entry x:Name="classNameEntry" Placeholder="Nombre de la clase" />
+
+                <Picker x:Name="MateriaPicker" Title="Selecciona la materia">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Lengua y Literatura</x:String>
+                            <x:String>Matemática</x:String>
+                            <x:String>Ciencias Naturales</x:String>
+                            <x:String>Ciencias Sociales</x:String>
+                            <x:String>Inglés</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Picker x:Name="gradePicker" Title="Selecciona el grado">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>7mo</x:String>
+                            <x:String>8vo</x:String>
+                            <x:String>9no</x:String>
+                            <x:String>10mo</x:String>
+                            <x:String>11mo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Entry x:Name="yearEntry" Placeholder="Año (por ejemplo, 2024)" Keyboard="Numeric" />
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="Cancelar" Clicked="OnCancel"/>
+                    <Button Text="Guardar Clase" Clicked="OnSaveClassClicked" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</popup:BasePopupPage>

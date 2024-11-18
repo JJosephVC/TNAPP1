@@ -43,7 +43,7 @@ public partial class LoginPage : ContentPage
             if (role == "maestro")
             {
                 // Navegar a la página del maestro
-                //await Navigation.PushAsync(new MaestroPage(userId));
+                await Navigation.PushAsync(new MaestroPage(userId));
                 LimpiarEntrys();
             }
             else if (role == "estudiante")

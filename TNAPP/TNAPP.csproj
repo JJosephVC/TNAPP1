@@ -43,7 +43,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\tnapplogo.png" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -58,13 +58,18 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\arrow.png" />
+	  <None Remove="Resources\Images\book.png" />
 	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\home_s.png" />
+	  <None Remove="Resources\Images\list.png" />
 	  <None Remove="Resources\Images\logout.png" />
+	  <None Remove="Resources\Images\mas.png" />
 	  <None Remove="Resources\Images\setting.png" />
 	  <None Remove="Resources\Images\setting_s.png" />
+	  <None Remove="Resources\Images\tnapplogo.png" />
 	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\user_s.png" />
+	  <None Remove="Resources\Splash\tnapplogo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -78,6 +83,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\ClasePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CrearClaseModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\EstudiantePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
