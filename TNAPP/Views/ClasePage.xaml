@@ -88,13 +88,8 @@
     </ContentPage>
 
     <!-- Evaluaciones -->
-    <ContentPage Title="Evaluaciones" IconImageSource="list.png" NavigationPage.HasNavigationBar="False">
-            
-    </ContentPage>
-    
-    <!-- Estudiantes --><!--
-    <ContentPage Title="" IconImageSource="" NavigationPage.HasNavigationBar="False">
+    <ContentPage Title="Estudiantes" IconImageSource="list.png" NavigationPage.HasNavigationBar="False">
 
-    </ContentPage>-->
+    </ContentPage>
 
 </TabbedPage>

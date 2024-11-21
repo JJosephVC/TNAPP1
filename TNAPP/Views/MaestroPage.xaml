@@ -125,7 +125,6 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-
                 </VerticalStackLayout>
             </ScrollView>
 
@@ -157,8 +156,123 @@
 
     </ContentPage>
 
-    <!-- Página de Configuración -->
-    <ContentPage Title="Ajustes" IconImageSource="setting.png" NavigationPage.HasNavigationBar="False">
+    <!-- Página de Preguntas -->
+    <ContentPage Title="Info" IconImageSource="setting.png" NavigationPage.HasNavigationBar="False"
+                    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+        <ScrollView>
+            <StackLayout Padding="30">
+                <Label Text="Preguntas Frecuentes" FontSize="18" FontAttributes="Bold" Margin="0,0,0,30"/>
+                <Label Text="FAQ" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
 
+                <toolkit:Expander Margin="0,35,0,0">
+                    <toolkit:Expander.Header>
+                        <Label Text="1. ¿Qué es esta app y cómo funciona?" FontAttributes="Bold" FontSize="15" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <Label Text="La app es una herramienta diseñada para ayudar a estudiantes y profesores a monitorear y analizar el rendimiento académico del estudiante." Margin="0,0,0,10"/>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="2. ¿Qué información necesito proporcionar para usar la app?" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <StackLayout>
+                            <Label Text="Cada usuario al iniciar sesión debe de crear una cuenta y escoger el rol (profesor o estudiante). Además de esto se debe proporcionar un Correo electrónico y contraseña (está es única para la aplicación y  está vinculada únicamente a la aplicación." Margin="0,0,0,20"/>
+                            <Label Text="Al iniciar sesión como profesor, simplemente se agrega una clase y en caso de ya tener una clase creada, puede crear o registrar evaluaciones dentro de dicha clase. Por otro lado, el estudiante deberá ingresar el código de la clase para poder inscribirse a la clase, dicho código será proporcionado por el profesor." Margin="0,0,0,20"/>
+                            <Label Text="Al estar inscritos todos los estudiantes que deben registrarse en la clase, el profesor puede proceder a asignar una determinada nota a cada estudiante según su desempeño. Además de proporcionar un mensaje de retroalimentación para validar su aprendizaje." Margin="0,0,0,20"/>
+                        </StackLayout>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="3. ¿Qué costo tiene el uso de la app?" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <Label Text="El costo de la app es totalmente gratuita, para que el estudiante y el profesor puedan aprovechar de estas funcionalidades." Margin="0,0,0,20"/>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="4. ¿Qué beneficios ofrece la app a los estudiantes?" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <StackLayout>
+                            <Label Text="• Monitorear su propio progreso." Margin="0,0,0,10"/>
+                            <Label Text="• Identificar áreas donde necesitan mejorar." Margin="0,0,0,10"/>
+                            <Label Text="• Establecer metas académicas" Margin="0,0,0,10"/>
+                            <Label Text="• Recibir una retroalimentación personalizada por parte del docente, permitiendo un enfoque más puntual en áreas que requieren mayor dedicación." Margin="0,0,0,20"/>
+                        </StackLayout>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="5. ¿Qué beneficios ofrece la app a los profesores?" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <StackLayout>
+                            <Label Text="• Visualización clara y concisa del progreso de los estudiantes." Margin="0,0,0,10"/>
+                            <Label Text="• Personalización de la enseñanza." Margin="0,0,0,10"/>
+                            <Label Text="• Centralización de ciertos aspectos de la evaluación docente." Margin="0,0,0,20"/>
+                        </StackLayout>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="6. ¿Es segura la información que comparto con la app?" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <Label Text="Sí, la app cumple con todas las regulaciones de privacidad y protección, para proteger todos los datos personales y académicos. Además, no se compartirá  información con terceros." Margin="0,0,0,20"/>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="7. ¿Puedo usar la app si no tengo acceso a internet?" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <Label Text="La app requiere conexión a internet para sincronizar datos y recibir actualizaciones. Además de ser necesario para que cada usuario pueda acceder a su cuenta." Margin="0,0,0,20"/>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Label Text="8. ¿Puedo acceder a la app desde mi computadora?" FontAttributes="Bold" Margin="0,0,0,20"/>
+                    </toolkit:Expander.Header>
+                    <toolkit:Expander.Content>
+                        <Label Text="Actualmente, la app está diseñada o enfocada en el sector móvil. Esto con el propósito de facilitar a los estudiantes el acceso a dicho servicio sin la necesidad de una inversión mayor." Margin="0,0,0,20"/>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+
+                <!-- Divider Line -->
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage>
 </TabbedPage>

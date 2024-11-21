@@ -108,6 +108,9 @@
 	  <MauiXaml Update="Views\EstudiantePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\EvaluacionesEstPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\IngresarNotaModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

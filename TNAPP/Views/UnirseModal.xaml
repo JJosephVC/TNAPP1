@@ -10,7 +10,8 @@
             <StackLayout>
                 <Label Text="Unirse a una clase" FontSize="Medium" HorizontalOptions="Center" Margin="0,20,0,40"/>
                 <Label Text="Código de la clase" FontSize="Small" />
-                <Entry x:Name="classCodeEntry" Placeholder="Código de la clase" FontSize="Small" Margin="0,10" />
+                <Entry x:Name="classCodeEntry" Placeholder="Código de la clase" FontSize="Small" Margin="0,10,0,2" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,10"/>
                 <Label Text="Para acceder con un código de la clase:" Margin="0,20,0,20"/>
                 <Label Text="• Usa una cuenta autorizada" FontSize="Small"/>
                 <Label Text="• Usa un código entre 5 y 7 letras o números, sin espacios ni símbolos" FontSize="Small" />
