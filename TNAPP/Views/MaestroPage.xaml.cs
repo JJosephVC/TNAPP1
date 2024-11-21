@@ -50,17 +50,8 @@ public partial class MaestroPage : TabbedPage
     {
         if (e.Item is Clase clase)
         {
-            var action = await DisplayActionSheet("Selecciona una opción", "Cancelar", null, "Ver Evaluaciones", "Editar Clase");
-            if (action == "Ver Evaluaciones")
-            {
-                // Navegar a EvaluacionesPage pasando el código de la clase
-                //await Navigation.PushAsync(new EvaluacionesPage(clase.CodigoClase));
-            }
-            else if (action == "Editar Clase")
-            {
-                // Navegar a EditarClasePage pasando la clase seleccionada
-                //await Navigation.PushAsync(new EditarClasePage(clase));
-            }
+           // Navegar a EvaluacionesPage pasando el código de la clase
+           await Navigation.PushAsync(new ClasePage(clase.CodigoClase));
         }
            // Deseleccionar el item después de la navegación
            ((ListView)sender).SelectedItem = null;
@@ -76,5 +67,32 @@ public partial class MaestroPage : TabbedPage
         });
 
         PopupAction.DisplayPopup(crearClaseModal);
+    }
+
+    private async void OnEdit(object sender, EventArgs e)
+    {
+        // Obtener el parámetro asociado al botón presionado
+        var button = sender as Button;
+        if (button?.CommandParameter is Clase clase)
+        {
+            // Navegar a la página de edición pasando los datos de la clase
+            await Navigation.PushAsync(new EditarClasePage(clase));
+        }
+    }
+
+    private void OnMenuClicked(object sender, EventArgs e)
+    {
+        // Obtener el botón que activó el evento
+        var button = sender as ImageButton;
+
+        // Buscar el Frame relacionado (PopupMenu)
+        var parent = button.Parent as Grid;
+        var popupMenu = parent.FindByName<Frame>("PopupMenu");
+
+        // Mostrar/Ocultar el menú
+        if (popupMenu != null)
+        {
+            popupMenu.IsVisible = !popupMenu.IsVisible;
+        }
     }
 }

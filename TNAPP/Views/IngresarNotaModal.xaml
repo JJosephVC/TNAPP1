@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<popup:BasePopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:MauiPopup.Views;assembly=MauiPopup"
+             x:Class="TNAPP.Views.IngresarNotaModal"
+             Title="IngresarNotaModal">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Frame BackgroundColor="White" CornerRadius="0" Padding="20" WidthRequest="300" HeightRequest="210">
+            <StackLayout>
+                <Label Text="Ingresar Nota" FontSize="20" HorizontalOptions="Center" />
+
+                <Entry x:Name="notaEntry" Placeholder="Ingrese la nota" Keyboard="Numeric" />
+                <Entry x:Name="retroalimentacionEntry" Placeholder="Ingrese retroalimentación" />
+
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Button Text="Cancelar" Clicked="OnCancel" BackgroundColor="#FF4D4D"/>
+                    <Button Text="Guardar Nota" BackgroundColor="#4CAF50" Clicked="OnGuardarNotaClicked" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    
+</popup:BasePopupPage>

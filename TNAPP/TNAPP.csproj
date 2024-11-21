@@ -59,11 +59,18 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\arrow.png" />
 	  <None Remove="Resources\Images\book.png" />
+	  <None Remove="Resources\Images\editar.png" />
 	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\home_s.png" />
+	  <None Remove="Resources\Images\image1.jpg" />
+	  <None Remove="Resources\Images\image2.jpg" />
+	  <None Remove="Resources\Images\image3.jpg" />
+	  <None Remove="Resources\Images\image4.jpg" />
+	  <None Remove="Resources\Images\image5.jpg" />
 	  <None Remove="Resources\Images\list.png" />
 	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\mas.png" />
+	  <None Remove="Resources\Images\puntos.png" />
 	  <None Remove="Resources\Images\setting.png" />
 	  <None Remove="Resources\Images\setting_s.png" />
 	  <None Remove="Resources\Images\tnapplogo.png" />
@@ -83,13 +90,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\AsignarNotasPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ClasePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CrearClaseModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\EditarClasePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\EstudiantePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\IngresarNotaModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">

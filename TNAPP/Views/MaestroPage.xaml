@@ -4,72 +4,152 @@
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
              x:Class="TNAPP.Views.MaestroPage"
-             BarBackgroundColor="LightGray"
+             BarBackgroundColor="White"
              BarTextColor="Black"
              Title="MaestroPage">
 
     <!-- Página de Inicio -->
-    <ContentPage Title="Inicio" IconImageSource="home.png" NavigationPage.HasNavigationBar="False">
-        <ScrollView>
-            <VerticalStackLayout Padding="20">
+    <ContentPage Title="Inicio" IconImageSource="home.png" NavigationPage.HasNavigationBar="False" BackgroundColor="#D4E3F2">
+        <AbsoluteLayout>
 
-                <Label Text="Gestionar Clases"
-                       FontSize="28"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       TextColor="#333" />
-                <ListView x:Name="classesListView"
-                          Margin="0,20,0,0"
+            <!-- Encabezado -->
+            <Grid BackgroundColor="White" Padding="10" HeightRequest="60" AbsoluteLayout.LayoutFlags="WidthProportional" AbsoluteLayout.LayoutBounds="0,0,1,-1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Título -->
+                <Label Text="TNAPP"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Grid.Column="1" />
+            </Grid>
+
+            <!-- Contenido desplazable -->
+            <ScrollView AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    Margin="0,70,0,0">
+                <VerticalStackLayout Padding="10">
+                    <ListView x:Name="classesListView"
                           HasUnevenRows="True"
-                          SeparatorVisibility="Default"
-                          BackgroundColor="#FFFFFF"
-                          RowHeight="90" ItemTapped="OnClaseSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Padding="10" Orientation="Vertical">
-                                    <Label Text="{Binding NombreClase}"
-                                           FontSize="20"
-                                           FontAttributes="Bold"
-                                           TextColor="#007ACC" />
-                                    <Label Text="{Binding CodigoClase}"
-                                           FontSize="16"
-                                           TextColor="#666" />
-                                    <Label Text="{Binding Grado}"
-                                           FontSize="16"
-                                           TextColor="#666" />
-                                    <Label Text="{Binding Anio}"
-                                           FontSize="14"
-                                           TextColor="#999"
-                                           Margin="0,5,0,0" />
-                                    <!-- Margen superior para separar del label anterior -->
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <!-- Botón flotante en la esquina inferior derecha con ícono -->
-                <Frame BackgroundColor="White"
-                          CornerRadius="40"
-                          WidthRequest="65"
-                          HeightRequest="65"
-                          VerticalOptions="End"
-                          HorizontalOptions="End"
-                          Margin="0,0,20,20"
-                          HasShadow="True"
-                          Grid.Row="1">
-                    <Frame.GestureRecognizers>
-                        <!-- Usa el evento Tapped para abrir el modal -->
-                        <TapGestureRecognizer Tapped="OnFloatingButtonTapped"/>
-                    </Frame.GestureRecognizers>
-                    <Image Source="mas.png"
-                              WidthRequest="20" 
-                              HeightRequest="18" 
-                              VerticalOptions="Center"
-                              HorizontalOptions="Center"/>
-                </Frame>
-            </VerticalStackLayout>
-        </ScrollView>
+                          SeparatorVisibility="None"
+                          BackgroundColor="#D4E3F2"
+                          RowHeight="90"
+                          ItemTapped="OnClaseSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!-- Cambiado Frame por Border -->
+                                    <Border Stroke="LightGray"
+                                        StrokeThickness="1"
+                                        BackgroundColor="White"
+                                        Padding="0"
+                                        StrokeShape="RoundRectangle 10"
+                                        Margin="0,5,0,5"
+                                        HeightRequest="130">
+                                        <Grid>
+                                            <!-- Imagen de fondo -->
+                                            <Image Source="{Binding BackgroundImage}"
+                                                   Aspect="AspectFill"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"
+                                                   Opacity="0.7" />
+                                            <!-- Espacio entre las celdas -->
+                                            <Grid ColumnSpacing="5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="50" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <!-- Información de la clase -->
+                                                <StackLayout Margin="20,20,0,0" Orientation="Vertical" Grid.Column="0">
+                                                    <Label Text="{Binding NombreClase}"
+                                                    FontSize="20"
+                                                    FontAttributes="Bold"
+                                                    TextColor="Black" 
+                                                    Margin="0,0,0,10"/>
+                                                    <Label Text="{Binding CodigoClase}"
+                                                    FontSize="14"
+                                                    TextColor="#666"
+                                                    Margin="0,0,0,10"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding Grado}"
+                                                        FontSize="14"
+                                                        TextColor="#999" />
+                                                        <Label Text="{Binding Anio}"
+                                                        FontSize="14"
+                                                        TextColor="#999"
+                                                        Margin="15,0,0,0" />
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <!-- Botón para mostrar menú -->
+                                                <Grid Grid.Column="1">
+                                                    <ImageButton Source="puntos.png"
+                                                             WidthRequest="32"
+                                                             HeightRequest="32"
+                                                             Margin="0,-50,0,0"
+                                                             BackgroundColor="Transparent"
+                                                             Clicked="OnMenuClicked" />
+
+                                                    <!-- Menú emergente personalizado -->
+                                                    <Frame x:Name="PopupMenu"
+                                                        BackgroundColor="White"
+                                                        Padding="-2"
+                                                        CornerRadius="0"
+                                                        IsVisible="False"
+                                                        VerticalOptions="Start"
+                                                        HorizontalOptions="End"
+                                                        WidthRequest="110"
+                                                        HeightRequest="40"
+                                                        Margin="0,43,10,0">
+                                                        <VerticalStackLayout>
+                                                            <Button Text="Editar Clase"
+                                                                Clicked="OnEdit"
+                                                                BackgroundColor="Transparent"
+                                                                TextColor="Black"
+                                                                FontSize="12"
+                                                                CommandParameter="{Binding .}"/>
+                                                        </VerticalStackLayout>
+                                                    </Frame>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <!-- Botón flotante estático -->
+            <Border Stroke="LightGray"
+                BackgroundColor="White"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 40"
+                WidthRequest="65"
+                HeightRequest="65"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="1,1,-1,-1"
+                Margin="20">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFloatingButtonTapped"/>
+                </Border.GestureRecognizers>
+                <Image Source="mas.png"
+                   WidthRequest="20"
+                   HeightRequest="18"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+            </Border>
+
+        </AbsoluteLayout>
     </ContentPage>
 
     <!-- Página de Perfil -->

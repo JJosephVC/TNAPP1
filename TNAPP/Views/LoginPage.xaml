@@ -17,9 +17,9 @@
 
                 <Label Text="Ingrese su contraseña" Margin="0,30,0,0"/>
                 <Entry x:Name="passwordEntry" IsPassword="True" Placeholder="Contraseña" HeightRequest="65"/>
-                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,50"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,35"/>
 
-                <StackLayout HorizontalOptions="Start" Margin="0,0,0,0">
+                <StackLayout HorizontalOptions="Start" Margin="0,0,0,20">
                     <Label IsVisible="False" x:Name="errorLabel" TextColor="Red" FontSize="10" HorizontalOptions="Center" VerticalOptions="Center" />
                 </StackLayout>
 
@@ -30,7 +30,7 @@
                      HeightRequest="40" WidthRequest="180"
                      Clicked="OnLoginClicked"/>
 
-                <StackLayout Margin="0,30,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <StackLayout Margin="0,25,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Label Text="¿No tienes cuenta aún?" FontSize="12" Margin="0,0,20,0"/>
                     <Label Text="Crear Cuenta" FontSize="12" TextColor="Blue">
                         <Label.GestureRecognizers>

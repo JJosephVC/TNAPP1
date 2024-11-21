@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TNAPP.Views.EditarClasePage"
+             Title="EditarClasePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#D4E3F2">
+
+    <VerticalStackLayout Padding="15" VerticalOptions="Center" HorizontalOptions="Center">
+        <!-- Contenedor principal -->
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="20" HasShadow="True" WidthRequest="350" HeightRequest="600">
+            <VerticalStackLayout>
+                <!-- Título -->
+                <Label Text="Editar Clase" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,50"/>
+
+                <!-- Campo: Nombre de la Clase -->
+                <Label Text="Nombre de la Clase" FontSize="16" />
+                <Entry x:Name="classNameEntry" Text="Historia Nicaragüense" Placeholder="Nombre de la clase" 
+                       Margin="0,5,0,2" HeightRequest="40"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,30"/>
+
+
+                <!-- Campo: Nombre la Materia -->
+                <Label Text="Nombre la Materia" FontSize="16" />
+                <Picker x:Name="MateriaPicker" Title="Selecciona la materia" Margin="0,8,0,2" HeightRequest="40">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Lengua y Literatura</x:String>
+                            <x:String>Matemática</x:String>
+                            <x:String>Ciencias Naturales</x:String>
+                            <x:String>Ciencias Sociales</x:String>
+                            <x:String>Inglés</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,30"/>
+
+                <!-- Campo: Grado Cursado -->
+                <Label Text="Grado Cursado" FontSize="16" />
+                <Picker x:Name="gradoPicker" Title="Selecciona el grado" Margin="0,5,0,2" HeightRequest="40">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>7mo</x:String>
+                            <x:String>8vo</x:String>
+                            <x:String>9no</x:String>
+                            <x:String>10mo</x:String>
+                            <x:String>11mo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,30"/>
+
+                <!-- Campo: Año -->
+                <Label Text="Año" FontSize="16" />
+                <Entry x:Name="yearEntry" Text="2024" Placeholder="Año (por ejemplo, 2024)" Keyboard="Numeric" 
+                       Margin="0,5,0,2" HeightRequest="40" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,0"/>
+
+                <!-- Botones -->
+                <HorizontalStackLayout Spacing="15" Margin="0,90,0,0" HorizontalOptions="Center">
+                    <Button Text="Cancelar" Clicked="OnCancelar" 
+                            BackgroundColor="#FF4D4D" TextColor="White" 
+                            CornerRadius="10" WidthRequest="120" HeightRequest="45"/>
+                    <Button Text="Actualizar Clase" Clicked="OnActualizarClicked" 
+                            BackgroundColor="#4CAF50" TextColor="White" 
+                            CornerRadius="10" WidthRequest="150" HeightRequest="45"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

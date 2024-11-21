@@ -6,14 +6,17 @@
              Title="CrearClaseModal">
     
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Frame BackgroundColor="White" CornerRadius="0" Padding="20" WidthRequest="300" HeightRequest="400">
+        <Frame BackgroundColor="White" CornerRadius="0" Padding="20" WidthRequest="300" HeightRequest="480">
             <StackLayout>
                 
-                <Label Text="Crear Nueva Clase" FontSize="24" HorizontalOptions="Center" />
+                <Label Text="Crear Nueva Clase" FontSize="18" HorizontalOptions="Center" />
 
-                <Entry x:Name="classNameEntry" Placeholder="Nombre de la clase" />
+                <Label Text="Nombre de la clase" Margin="0,40,0,0" FontSize="12"/>
+                <Entry x:Name="classNameEntry" Placeholder="Nombre de la clase" Margin="0,0,0,5"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-13,4,20"/>
 
-                <Picker x:Name="MateriaPicker" Title="Selecciona la materia">
+                <Label Text="Materia" FontSize="12"/>
+                <Picker x:Name="MateriaPicker" Title="Selecciona la materia" Margin="0,0,0,5">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Lengua y Literatura</x:String>
@@ -24,8 +27,10 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-13,4,20"/>
 
-                <Picker x:Name="gradePicker" Title="Selecciona el grado">
+                <Label Text="Grado" FontSize="12"/>
+                <Picker x:Name="gradePicker" Title="Selecciona el grado" Margin="0,0,0,5">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>7mo</x:String>
@@ -36,12 +41,15 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-13,4,20"/>
 
-                <Entry x:Name="yearEntry" Placeholder="Año (por ejemplo, 2024)" Keyboard="Numeric" />
+                <Label Text="Año" FontSize="12"/>
+                <Entry x:Name="yearEntry" Placeholder="Año (por ejemplo, 2024)" Keyboard="Numeric" Margin="0,0,0,5"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-13,4,10"/>
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button Text="Cancelar" Clicked="OnCancel"/>
-                    <Button Text="Guardar Clase" Clicked="OnSaveClassClicked" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="2" Margin="50,50,0,0">
+                    <Button Text="Cancelar" Clicked="OnCancel" BackgroundColor="White" TextColor="Black"/>
+                    <Button Text="Guardar Clase" Clicked="OnSaveClassClicked" BackgroundColor="White" TextColor="Black"/>
                 </StackLayout>
             </StackLayout>
         </Frame>

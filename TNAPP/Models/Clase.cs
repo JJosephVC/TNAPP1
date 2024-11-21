@@ -14,6 +14,7 @@ namespace ProTCE.Models
         public string IdMaestro { get; set; }
         public int Anio { get; set; }
         public string Materia { get; set; }
+        public string BackgroundImage { get; set; } // Nueva propiedad para actualizar la imagen
         public Dictionary<string, bool> estudiantes { get; set; } = new Dictionary<string, bool>();
         public Dictionary<string, Evaluacion> evaluaciones { get; set; } = new Dictionary<string, Evaluacion>();
     }

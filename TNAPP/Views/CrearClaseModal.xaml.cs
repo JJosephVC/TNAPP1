@@ -10,7 +10,10 @@ public partial class CrearClaseModal : BasePopupPage
 {
     private readonly ClaseController claseController;
     private string userId;//Id del Maestro
-    private Action OnClaseCreated;//Call Back para notificar que la clase fue creadax
+    private Action OnClaseCreated;//Call Back para notificar que la clase fue creada
+
+    private readonly string[] imagenes = { "image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg" };
+
     public CrearClaseModal(string userId, Action onClaseCreated)
 	{
 		InitializeComponent();
@@ -36,9 +39,12 @@ public partial class CrearClaseModal : BasePopupPage
         // Obtener el grado seleccionado y materia seleccionada
         var gradoSeleccionado = gradePicker.SelectedItem.ToString();
         var materiaSeleccionada = MateriaPicker.SelectedItem.ToString();
-
         // Generar el código de clase
         var codigoClase = await claseController.GenerarCodigoClase(classNameEntry.Text, gradoSeleccionado, int.Parse(yearEntry.Text));
+
+        // Seleccionar una imagen aleatoria
+        var random = new Random();
+        var imagenAleatoria = imagenes[random.Next(imagenes.Length)];
 
         var nuevaClase = new Clase
         {
@@ -47,7 +53,8 @@ public partial class CrearClaseModal : BasePopupPage
             Grado = gradoSeleccionado,
             Materia = materiaSeleccionada,
             IdMaestro = userId,
-            Anio = int.Parse(yearEntry.Text)
+            Anio = int.Parse(yearEntry.Text),
+            BackgroundImage = imagenAleatoria // Asignar la imagen aleatoria
         };
 
         // Guardar la clase
