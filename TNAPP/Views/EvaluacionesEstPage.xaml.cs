@@ -14,6 +14,8 @@ public partial class EvaluacionesEstPage : ContentPage
         this.claseId = claseId;
         this.estudianteId = estudianteId;
         evaluacionesController = new EvaluacionesController();
+
+        BindingContext = this;
     }
     protected override async void OnAppearing()
     {
@@ -25,7 +27,7 @@ public partial class EvaluacionesEstPage : ContentPage
         var evaluaciones = await evaluacionesController.GetEvaluacionesPorClase(claseId);
         if (evaluaciones != null && evaluaciones.Count > 0)
         {
-            evaluacionesListView.ItemsSource = evaluaciones; // Asigna la lista de evaluaciones al ListView
+            evaluacionesCollectionView.ItemsSource = evaluaciones; // Asigna la lista de evaluaciones al ListView
         }
         else
         {
@@ -33,28 +35,32 @@ public partial class EvaluacionesEstPage : ContentPage
         }
     }
 
-    private async void OnEvaluacionSelected(object sender, ItemTappedEventArgs e)
+    private async void OnEvaluacionSelected(object sender, SelectionChangedEventArgs e)
     {
-        if (e.Item is Evaluacion evaluacion)
+        // Verifica si hay una selección válida
+        if (e.CurrentSelection.FirstOrDefault() is Evaluacion evaluacion)
         {
-            // Obtener el ID de la evaluación
-            string codigoEvaluacion = await evaluacionesController.ObtenerIdEvaluacionPorNombre(claseId, evaluacion.Nombre);
-
-            // Cargar la nota del estudiante
-            var nota = await evaluacionesController.GetNotaPorEvaluacion(estudianteId, claseId, codigoEvaluacion);
-
-            if (nota != null)
+            try
             {
-                // Mostrar la nota en un DisplayAlert
-                await DisplayAlert("Nota", $"Valor: {nota.Valor}\nRetroalimentación: {nota.Retroalimentacion}", "OK");
+                string codigoEvaluacion = await evaluacionesController.ObtenerIdEvaluacionPorNombre(claseId, evaluacion.Nombre);
+                var nota = await evaluacionesController.GetNotaPorEvaluacion(estudianteId, claseId, codigoEvaluacion);
+
+                if (nota != null)
+                {
+                    await DisplayAlert("Nota", $"Valor: {nota.Valor}\nRetroalimentación: {nota.Retroalimentacion}", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Sin Nota", "No se encontró una nota para esta evaluación.", "OK");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                await DisplayAlert("Sin Nota", "No se encontró una nota para esta evaluación.", "OK");
+                await DisplayAlert("Error", "Ocurrió un error al cargar los datos: " + ex.Message, "OK");
             }
         }
 
-    // Deseleccionar el item después de la navegación
-    ((ListView)sender).SelectedItem = null;
+    // Deselecciona el elemento después de procesarlo
+    ((CollectionView)sender).SelectedItem = null;
     }
 }

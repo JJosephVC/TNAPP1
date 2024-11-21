@@ -14,6 +14,23 @@ public partial class MaestroPage : TabbedPage
         this.userId = userId;
         authController = new AuthController();
         LoadMaestroData();
+        LoadMaestro();
+    }
+
+    private async Task LoadMaestro()
+    {
+        // Obtener los detalles del maestro
+        var maestro = await authController.GetMaestro(userId);
+
+        if (maestro != null)
+        {
+            // Asignar el nombre y género del maestro a los Labels
+            nombreLabel.Text = maestro.Nombres;  // Asegúrate de que 'Nombre' sea el campo correcto en tu modelo
+        }
+        else
+        {
+            await DisplayAlert("Error", "No se pudo cargar la información del maestro.", "OK");
+        }
     }
     private async Task LoadMaestroData()
     {
@@ -93,6 +110,28 @@ public partial class MaestroPage : TabbedPage
         if (popupMenu != null)
         {
             popupMenu.IsVisible = !popupMenu.IsVisible;
+        }
+    }
+
+    private async void OnImg(object sender, TappedEventArgs e)
+    {
+        try
+        {
+            var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+            {
+                Title = "Selecciona una imagen"
+            });
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+                fotocambio.Source = ImageSource.FromStream(() => stream);
+            }
+        }
+        catch (Exception ex)
+        {
+            // Manejar excepciones (por ejemplo, si el usuario cancela la selección)
+            await Application.Current.MainPage.DisplayAlert("Error", $"No se pudo seleccionar la imagen: {ex.Message}", "OK");
         }
     }
 }

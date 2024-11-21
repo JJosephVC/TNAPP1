@@ -12,6 +12,7 @@ namespace ProTCE.Models
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Email { get; set; }
+        public string Genero { get; set; }
         public Dictionary<string, bool> Clases { get; set; } = new Dictionary<string, bool>();
     }
 }

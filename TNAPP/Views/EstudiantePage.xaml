@@ -20,7 +20,7 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="TNAPP" FontSize="Large" TextColor="Black" VerticalOptions="Center" 
+                        <Label Text="TNAPP" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" 
                            Grid.Column="1" HorizontalOptions="Start" Margin="10,0" />
                     </Grid>
                 </Frame>
@@ -113,7 +113,31 @@
 
     <!-- Página de Perfil -->
     <ContentPage Title="Perfil" IconImageSource="user.png" NavigationPage.HasNavigationBar="False">
-        
+
+        <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="Center">
+            <!-- Foto de perfil -->
+            <Frame CornerRadius="200" HeightRequest="200" WidthRequest="200" 
+           VerticalOptions="Center" HorizontalOptions="Center" 
+           BorderColor="Gray">
+                <Image x:Name="fotocambio" Source="user.png"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               Aspect="AspectFill" />
+            </Frame>
+
+            <Frame CornerRadius="200" HeightRequest="60" WidthRequest="60" Margin="1,-70,-135,1">
+                <Image x:Name="fotobuscar" Source="user.png" Aspect="AspectFit" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImg" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Label Text="Nombre del Usuario" x:Name="nombreLabel" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Genero:" FontSize="20" TextColor="Gray" Margin="-100,50,0,0" HorizontalOptions="Center" LineBreakMode="TailTruncation"/>
+            <Label Text="Hombre" x:Name="generoLabel" FontSize="20" Margin="-10,-39,0,0" TextColor="Gray" HorizontalOptions="Center" LineBreakMode="TailTruncation"/>
+
+        </VerticalStackLayout>
+
     </ContentPage>
     
     

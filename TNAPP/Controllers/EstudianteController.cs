@@ -16,6 +16,22 @@ namespace ProTCE.Controllers
         {
             firebaseConnection = new FirebaseConnection();
         }
+        public async Task<Estudiante> GetEstudiantePorId(string estudianteId)
+        {
+            var estudianteData = await firebaseConnection.GetEstudiante(estudianteId);
+
+            // Verificar que se obtuvieron los datos del estudiante
+            if (estudianteData != null)
+            {
+                // Crear un objeto Estudiante con la información recuperada
+                return new Estudiante
+                {
+                    Nombres = estudianteData.Nombres,  // Asumiendo que la propiedad 'Nombre' existe en 'estudianteData'
+                    Genero = estudianteData.Genero   // Asumiendo que la propiedad 'Genero' existe en 'estudianteData'
+                };
+            }
+            return null;
+        }
 
         public async Task<List<Clase>> GetClasesPorEstudiante(string estudianteId)
         {

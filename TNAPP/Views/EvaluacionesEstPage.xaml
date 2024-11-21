@@ -4,24 +4,46 @@
              x:Class="TNAPP.Views.EvaluacionesEstPage"
              Title="EvaluacionesEstPage"
              NavigationPage.HasNavigationBar="False">
-    
-    <VerticalStackLayout Padding="20">
-        <Label Text="Evaluaciones" FontSize="24" HorizontalOptions="Center" />
 
-        <ListView x:Name="evaluacionesListView" Margin="0,10,0,10" ItemTapped="OnEvaluacionSelected">
-            <ListView.ItemTemplate>
+    <VerticalStackLayout Padding="20">
+        <Label Text="Evaluaciones" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               Margin="0,50" />
+
+        <CollectionView x:Name="evaluacionesCollectionView" 
+                        ItemsSource="{Binding Evaluaciones}" 
+                        SelectionChanged="OnEvaluacionSelected" 
+                        SelectionMode="Single"
+                        Margin="0,0,0,0">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="18" />
-                            <Label Text="{Binding Fecha}" FontSize="14" />
-                            <Label Text="{Binding TipoEvaluacion}" FontSize="14" />
-                            <Label Text="{Binding CalificacionMaxima}" FontSize="14" />
-                        </StackLayout>
-                    </ViewCell>
+                    <Border 
+                           Padding="10" 
+                           Margin="0,5" 
+                           BackgroundColor="White"
+                           InputTransparent="False">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Nombre}" 
+                                   FontAttributes="Bold" 
+                                   FontSize="18" 
+                                   TextColor="#0000FF" />
+                            <HorizontalStackLayout>
+                                <Image Source="calendar.png" 
+                                       WidthRequest="20" 
+                                       HeightRequest="20" 
+                                       VerticalOptions="Center" 
+                                       InputTransparent="True" />
+                                <Label Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy hh:mm tt}'}" 
+                                       FontSize="14" 
+                                       VerticalOptions="Center" 
+                                       Margin="5,0,0,0" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
-    
 </ContentPage>

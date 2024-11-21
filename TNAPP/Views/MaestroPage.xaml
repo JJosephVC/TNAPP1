@@ -4,7 +4,7 @@
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
              x:Class="TNAPP.Views.MaestroPage"
-             BarBackgroundColor="White"
+             BarBackgroundColor="LightGray"
              BarTextColor="Black"
              Title="MaestroPage">
 
@@ -153,7 +153,29 @@
 
     <!-- Página de Perfil -->
     <ContentPage Title="Perfil" IconImageSource="user.png" NavigationPage.HasNavigationBar="False">
+        <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="Center">
+            <!-- Foto de perfil -->
+            <Frame CornerRadius="200" HeightRequest="200" WidthRequest="200" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BorderColor="Gray">
+                <Image x:Name="fotocambio" Source="user.png"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Aspect="AspectFill" />
+            </Frame>
+            <Frame CornerRadius="200" HeightRequest="60" WidthRequest="60"  Margin="1,-70,-135,1">
+                <Image x:Name="fotobuscar" Source="user.png" Aspect="AspectFit"></Image>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImg"/>
+                </Frame.GestureRecognizers>
+            </Frame>
 
+            <!-- Información del perfil (en estos labels se suponen deberian ir los nombres ) -->
+            <Label x:Name="nombreLabel" Text="Nombre del Maestro" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" />
+        </VerticalStackLayout>
     </ContentPage>
 
     <!-- Página de Preguntas -->
