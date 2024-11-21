@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Views;
+using MauiPopup;
 using ProTCE.Controllers;
 using ProTCE.Models;
 
@@ -10,8 +12,8 @@ public partial class AsignarNotasPage : ContentPage
     private readonly int calificacionMaxima;
     private readonly EstudianteController estudianteController;
     public AsignarNotasPage(string codigoClase, string codigoEvaluacion, int calificacionMaxima)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         this.codigoClase = codigoClase;
         this.codigoEvaluacion = codigoEvaluacion;
         this.calificacionMaxima = calificacionMaxima;
@@ -42,12 +44,13 @@ public partial class AsignarNotasPage : ContentPage
     {
         if (e.Item is Estudiante estudiante)
         {
-            // Mostrar el DisplayAction para elegir entre "Asignar Nota" o "Ver Nota"
+            // Mostrar opciones para el estudiante seleccionado
             var action = await DisplayActionSheet("Selecciona una opción", "Cancelar", null, "Asignar Nota", "Ver Nota");
             if (action == "Asignar Nota")
             {
-                // Navegar a la página de asignar nota
-                await Navigation.PushAsync(new IngresarNotaModal(estudiante.Id, codigoEvaluacion, calificacionMaxima, codigoClase));
+                // Crear la instancia de la modal con los parámetros necesarios
+                var popup = new IngresarNotaModal(estudiante.Id, codigoEvaluacion, calificacionMaxima, codigoClase);
+                PopupAction.DisplayPopup(popup); // Abre la modal usando BasePopupPage
             }
             else if (action == "Ver Nota")
             {
@@ -62,11 +65,9 @@ public partial class AsignarNotasPage : ContentPage
                     await DisplayAlert("Info", "No hay nota registrada para este estudiante.", "OK");
                 }
             }
-            // Navegar a la página de ingreso de notas
-            //await Navigation.PushAsync(new IngresarNotaPage(estudiante.Id, codigoEvaluacion, calificacionMaxima, codigoClase));//Esta mal por ahora, jejeje
-        }
 
-            // Deseleccionar el item después de la navegación
-            ((ListView)sender).SelectedItem = null;
+        // Deseleccionar el ítem después de la acción
+        ((ListView)sender).SelectedItem = null;
+        }
     }
 }

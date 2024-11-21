@@ -1,3 +1,4 @@
+using MauiPopup;
 using ProTCE.Controllers;
 using ProTCE.Models;
 
@@ -59,6 +60,10 @@ public partial class ClasePage : TabbedPage
 
     private void OnAddEvaluacionClicked(object sender, EventArgs e)
     {
+        // Crear la instancia de la modal pasando el ID de la clase
+        var popup = new CrearEvaluacionModal(claseId);
 
+        // Mostrar la modal utilizando PopupAction
+        PopupAction.DisplayPopup(popup); 
     }
 }

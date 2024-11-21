@@ -99,6 +99,9 @@
 	  <MauiXaml Update="Views\CrearClaseModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\CrearEvaluacionModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\EditarClasePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -6,16 +6,18 @@
              Title="IngresarNotaModal">
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Frame BackgroundColor="White" CornerRadius="0" Padding="20" WidthRequest="300" HeightRequest="210">
+        <Frame BackgroundColor="White" CornerRadius="0" Padding="20" WidthRequest="300" HeightRequest="220">
             <StackLayout>
-                <Label Text="Ingresar Nota" FontSize="20" HorizontalOptions="Center" />
+                <Label Text="Ingresar Nota" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,10"/>
 
-                <Entry x:Name="notaEntry" Placeholder="Ingrese la nota" Keyboard="Numeric" />
-                <Entry x:Name="retroalimentacionEntry" Placeholder="Ingrese retroalimentación" />
+                <Entry x:Name="notaEntry" Placeholder="Ingrese la nota" Keyboard="Numeric" Margin="0,0,0,2"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,10"/>
+                <Entry x:Name="retroalimentacionEntry" Placeholder="Ingrese retroalimentación" Margin="0,0,0,2"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,10"/>
 
-                <StackLayout Orientation="Horizontal" Spacing="5">
-                    <Button Text="Cancelar" Clicked="OnCancel" BackgroundColor="#FF4D4D"/>
-                    <Button Text="Guardar Nota" BackgroundColor="#4CAF50" Clicked="OnGuardarNotaClicked" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="5" Margin="0,10,0,0">
+                    <Button Text="Cancelar" Clicked="OnCancel" BackgroundColor="#FF4D4D" HeightRequest="40"/>
+                    <Button Text="Guardar Nota" BackgroundColor="#4CAF50" Clicked="OnGuardarNotaClicked" HeightRequest="40"/>
                 </StackLayout>
             </StackLayout>
         </Frame>

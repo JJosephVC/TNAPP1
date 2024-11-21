@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<popup:BasePopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:MauiPopup.Views;assembly=MauiPopup"
+             x:Class="TNAPP.Views.CrearEvaluacionModal"
+             Title="CrearEvaluacionModal">
+    
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Frame BackgroundColor="White" CornerRadius="0" Padding="20" WidthRequest="300" HeightRequest="550">
+            <StackLayout>
+                <Label Text="Nombre de la Evaluación" Margin="0,10,0,0"/>
+                <Entry x:Name="nombreEntry" Placeholder="Ingrese el nombre" Margin="0,0,0,2"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Tipo de Evaluación" />
+                <Entry x:Name="tipoEntry" Placeholder="Ingrese el tipo" Margin="0,0,0,2"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Calificación Máxima" />
+                <Entry x:Name="calificacionMaximaEntry" Placeholder="Ingrese calificación máxima" Keyboard="Numeric" Margin="0,0,0,2"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Corte Evaluativo" />
+                <Picker x:Name="corteEvaluativoPicker" Title="Seleccione el corte evaluativo">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1er Corte Evaluativo</x:String>
+                            <x:String>2do Corte Evaluativo</x:String>
+                            <x:String>3er Corte Evaluativo</x:String>
+                            <x:String>4to Corte Evaluativo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Semestre" />
+                <Picker x:Name="semestrePicker" Title="Seleccione el semestre">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1er Semestre</x:String>
+                            <x:String>2do Semestre</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,20"/>
+
+                <Label Text="Fecha" />
+                <DatePicker x:Name="fechaPicker" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" Margin="4,-10,4,30"/>
+
+                <Button Text="Crear Evaluación" Clicked="OnSaveEvaluacionClicked" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    
+</popup:BasePopupPage>
